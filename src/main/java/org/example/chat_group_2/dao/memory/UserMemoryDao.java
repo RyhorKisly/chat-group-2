@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class UserDao implements IUserDao {
+public class UserMemoryDao implements IUserDao {
     private final Map<String, UserDto> users = new ConcurrentHashMap<>();
     @Override
     public List<UserDto> get() {
