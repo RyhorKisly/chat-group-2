@@ -1,21 +1,25 @@
 package org.example.chat_group_2.core.dto;
 
 public class UserDto {
-//    hello
     private String login;
-    private String passWord;
-    private String fullName;
+    private String password;
+    private String lastName;
+    private String firstName;
+    private String patronymic;
     private String birthDay;
     private String registrationDay;
     private String role;
+
     public UserDto() {
 
     }
 
-    public UserDto(String login, String passWord, String fullName, String birthDay, String registrationDay, String role) {
+    public UserDto(String login, String passWord, String lastName, String firstName, String patronymic, String birthDay, String registrationDay, String role) {
         this.login = login;
-        this.passWord = passWord;
-        this.fullName = fullName;
+        this.password = passWord;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.patronymic = patronymic;
         this.birthDay = birthDay;
         this.registrationDay = registrationDay;
         this.role = role;
@@ -29,20 +33,36 @@ public class UserDto {
         this.login = login;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String passWord) {
+        this.password = password;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
     public String getBirthDay() {
