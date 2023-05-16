@@ -11,7 +11,14 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/ui/signUp")
 public class UserUiServlet extends HttpServlet {
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UserSignUp.jsp");
+        requestDispatcher.forward(req, resp);
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("loginBoolean", false);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UserSignUp.jsp");
         requestDispatcher.forward(req, resp);
     }
