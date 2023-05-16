@@ -11,6 +11,19 @@
 	<title>Registration form</title>
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/chat-project-1.0.0/ui/">Home</a></li>
+            <li><a href="/chat-project-1.0.0/ui/user/message">Messages</a></li>
+            <li><a href="/chat-project-1.0.0/ui/user/chats">Chats</a></li>
+                    <li style="float: right;"><a href="/chat-project-1.0.0/ui/signIn">Sign In</a></li>
+
+                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Registration</a></li>
+                  <!-- <li style="float: right;"><span>Login: guest Role: unknown</span></li> -->
+        </ul>
+    </nav>
+</header>
 <form class="modal-content" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/user" method="POST">
   <c:choose>
     <c:when test="${loginBoolean == false}">
