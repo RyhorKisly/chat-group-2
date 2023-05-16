@@ -1,0 +1,33 @@
+* {box-sizing: border-box}
+
+
+
+.container {
+  padding: 3px;
+  text-align: center;
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 3% auto 2% auto; 
+    border: 1px solid #888;
+    width: 500px;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 0px;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
