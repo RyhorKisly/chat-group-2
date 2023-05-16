@@ -69,7 +69,12 @@ public class UserApiServlet extends HttpServlet {
             requestDispatcher.forward(req, resp);
         }
 
-        writer.write("<p>" + dto.getLogin() + "</p>" +
+
+
+                                                 //        Это чисто для проверки. Я потом удалю
+
+        writer.write("<p> Пользователь, попытавшийся зарегистрироваться: </p>" +
+                "<p>" + dto.getLogin() + "</p>" +
                 "<p>" + dto.getPassword() + "</p>" +
                 "<p>" + dto.getLastName() + "</p>" +
                 "<p>" + dto.getFirstName() + "</p>" +
@@ -79,6 +84,7 @@ public class UserApiServlet extends HttpServlet {
                 "<p>" + dto.getRole() + "</p>"
         );
 
+        writer.write("<p> Список зарегестрированных пользователей: </p>");
         for (UserDto userDto : userService.get()) {
             writer.write("<h1> Юзер </h1>" +
                     "<p>" + userDto.getLogin() + "</p>" +
