@@ -9,7 +9,7 @@ public class UserDaoFactory {
     private UserDaoFactory() {
 
     }
-    public IUserDao getInstance() {
+    public static IUserDao getInstance() {
         if(instance == null) {
             synchronized (UserDaoFactory.class) {
                 if(instance == null) {
