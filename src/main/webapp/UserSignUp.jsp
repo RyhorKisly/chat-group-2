@@ -12,25 +12,22 @@
 </head>
 <body>
 <form class="modal-content" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/user" method="POST">
-
-
-
-		<c:choose>
-        	<c:when test="${loginBoolean == false}">
-            <div class="container">
-              <h1>Registration</h1>
-              <p>Please fill in this form to create an account.</p>
-          </div>
-        </c:when>
-        <c:otherwise>
-          <div class="container">
-            <h1>Registration</h1>
-            <p style="color:red">login: ${login}  </br>
-            already exists. Please, try again!</p>
-          </div>
-        </c:otherwise>
-      </c:choose>
-	<hr>
+  <c:choose>
+    <c:when test="${loginBoolean == false}">
+      <div class="container">
+        <h1>Registration</h1>
+        <p>Please fill in this form to create an account.</p>
+      </div>
+    </c:when>
+    <c:otherwise>
+      <div class="container">
+        <h1>Registration</h1>
+        <p style="color:red">login: ${login}  </br>
+        already exists. Please, try again!</p>
+      </div>
+    </c:otherwise>
+  </c:choose>
+  <hr>
   <div class="container-form">
     <label for="login"><b>Login</b></label>
     <input type="text" placeholder="Введите login" name="login" required>
