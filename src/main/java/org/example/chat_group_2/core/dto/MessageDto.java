@@ -3,6 +3,8 @@ package org.example.chat_group_2.core.dto;
 import java.time.LocalDateTime;
 
 public class MessageDto {
+    private int id;
+
     private LocalDateTime dateTime;
     private UserDto from;
     private UserDto to;
@@ -11,7 +13,8 @@ public class MessageDto {
     public MessageDto() {
     }
 
-    public MessageDto(LocalDateTime dateTime, UserDto from, UserDto to, String text) {
+    public MessageDto(int id, LocalDateTime dateTime, UserDto from, UserDto to, String text) {
+        this.id = id;
         this.dateTime = dateTime;
         this.from = from;
         this.to = to;
@@ -48,5 +51,13 @@ public class MessageDto {
 
     public void setLetter(String letter) {
         this.letter = letter;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
