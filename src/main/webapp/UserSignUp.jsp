@@ -33,7 +33,7 @@
 	<hr>
   <div class="container-form">
     <label for="login"><b>Login</b></label>
-    <input type="text" placeholder="Введите Email" name="login" required>
+    <input type="text" placeholder="Введите login" name="login" required>
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Введите пароль" name="password" required>
