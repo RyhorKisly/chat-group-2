@@ -11,10 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserMemoryDao implements IUserDao {
     private final Map<String, UserDto> users = new ConcurrentHashMap<>();
     public UserMemoryDao() {
-        users.put("Grisha", new UserDto("Grisha", "Grisha","Admin"));
-//        users.put("Dima", )
-//        users.put("Vladislav", )
-//        users.put("Zenia", )
+        users.put("Admin", new UserDto("Admin", "Admin","Admin"));
     }
     @Override
     public List<UserDto> get() {
