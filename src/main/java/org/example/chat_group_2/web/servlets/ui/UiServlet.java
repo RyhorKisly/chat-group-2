@@ -25,8 +25,20 @@ public class UiServlet extends HttpServlet {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
             requestDispatcher.forward(req, resp);
         }
-
-
-
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        UserDto dto = (UserDto) session.getAttribute("user");
+        if(dto == null) {
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Ui.jsp");
+            requestDispatcher.forward(req, resp);
+        } else {
+            req.setAttribute("user", dto);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
+            requestDispatcher.forward(req, resp);
+        }
+    }
+
 }

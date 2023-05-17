@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.chat_group_2.core.dto.UserDto;
 import org.example.chat_group_2.service.api.IUserService;
 import org.example.chat_group_2.service.factory.UserServiceFactory;
@@ -15,6 +16,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet(urlPatterns = "/api/user")
@@ -32,6 +34,24 @@ public class UserApiServlet extends HttpServlet {
     public UserApiServlet() {
         userService = UserServiceFactory.getInstance();
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        UserDto dto = (UserDto) session.getAttribute("user");
+        if(dto == null) {
+            req.setAttribute("login1", "login1");
+            req.setAttribute("login2", "login2");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
+            requestDispatcher.forward(req, resp);
+        } else {
+            req.setAttribute("user", dto);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
+            requestDispatcher.forward(req, resp);
+        }
+
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
@@ -49,55 +69,27 @@ public class UserApiServlet extends HttpServlet {
         LocalDate date = LocalDate.parse(birthDay, FORMATTER_FOR_PARSING);
         String parsedBirthDay = DATE_FORMATTER.format(date);
 
-        UserDto dto = new UserDto(
-                login,
-                password,
-                lastName,
-                firstName,
-                patronymic,
-                parsedBirthDay,
-                registrationDay,
+        UserDto dto = new UserDto(login, password,
+                lastName, firstName, patronymic,
+                parsedBirthDay, registrationDay,
                 "User"
         );
 
         if(userService.get(dto.getLogin()) == null) {
             userService.save(dto);
+            HttpSession session = req.getSession();
+            session.setAttribute("user", dto);
+            req.setAttribute("user", dto);
+            List<UserDto> users = userService.get();
+            req.setAttribute("users", users);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui");
+            requestDispatcher.forward(req, resp);
         } else {
-            req.setAttribute("loginBoolean", true);
-            req.setAttribute("login", login);
+            req.setAttribute("login1", dto.getLogin());
+            req.setAttribute("login2", userService.get(dto.getLogin()).getLogin());
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui/signUp");
             requestDispatcher.forward(req, resp);
         }
-
-
-
-                                                 //        Это чисто для проверки. Я потом удалю
-
-        writer.write("<p> Пользователь, попытавшийся зарегистрироваться: </p>" +
-                "<p>" + dto.getLogin() + "</p>" +
-                "<p>" + dto.getPassword() + "</p>" +
-                "<p>" + dto.getLastName() + "</p>" +
-                "<p>" + dto.getFirstName() + "</p>" +
-                "<p>" + dto.getPatronymic() + "</p>" +
-                "<p>" + dto.getBirthDay() + "</p>" +
-                "<p>" + dto.getRegistrationDay() + "</p>" +
-                "<p>" + dto.getRole() + "</p>"
-        );
-
-        writer.write("<p> Список зарегестрированных пользователей: </p>");
-        for (UserDto userDto : userService.get()) {
-            writer.write("<h1> Юзер </h1>" +
-                    "<p>" + userDto.getLogin() + "</p>" +
-                    "<p>" + userDto.getPassword() + "</p>" +
-                    "<p>" + userDto.getLastName() + "</p>" +
-                    "<p>" + userDto.getFirstName() + "</p>" +
-                    "<p>" + userDto.getPatronymic() + "</p>" +
-                    "<p>" + userDto.getBirthDay() + "</p>" +
-                    "<p>" + userDto.getRegistrationDay() + "</p>" +
-                    "<p>" + userDto.getRole() + "</p>"
-            );
-        }
-
 
     }
 
