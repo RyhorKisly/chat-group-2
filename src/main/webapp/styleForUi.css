@@ -32,8 +32,8 @@ a {
   text-align: center;
 }
 
-header { background-color: #837676; padding: 20px; }
-nav { background-color: #837676; overflow: hidden; }
+header { background-color: #333; padding: 20px; }
+nav { background-color: #333; overflow: hidden; }
 nav ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; }
 nav li { float: left; }
 nav li a { display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; }
