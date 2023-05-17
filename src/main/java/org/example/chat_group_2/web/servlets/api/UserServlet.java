@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet(urlPatterns = "/api/user")
-public class UserApiServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
     private final IUserService userService;
     private final static DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyyг. HH:mm:ss");
     private final static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyyг.");
@@ -31,7 +31,7 @@ public class UserApiServlet extends HttpServlet {
     private static final String FIRSTNAME_PARAM_NAME = "firstName";
     private static final String PATRONYMIC_PARAM_NAME = "patronymic";
     private static final String BIRTHDAY_PARAM_NAME = "birthDay";
-    public UserApiServlet() {
+    public UserServlet() {
         userService = UserServiceFactory.getInstance();
     }
 
@@ -45,6 +45,8 @@ public class UserApiServlet extends HttpServlet {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
             requestDispatcher.forward(req, resp);
         } else {
+            List<UserDto> users = userService.get();
+            req.setAttribute("users", users);
             req.setAttribute("user", dto);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
             requestDispatcher.forward(req, resp);
@@ -75,6 +77,8 @@ public class UserApiServlet extends HttpServlet {
                 "User"
         );
 
+
+
         if(userService.get(dto.getLogin()) == null) {
             userService.save(dto);
             HttpSession session = req.getSession();
@@ -104,4 +108,30 @@ public class UserApiServlet extends HttpServlet {
         }
         return param;
     }
+
+                                       //        это на случай, если будем добавлять юзерам id
+//        List<UserDto> userses = userService.get();
+//        for (UserDto user : userses) {
+//            if(user.getLogin().equals(login)) {
+//                userService.save(dto);
+//                HttpSession session = req.getSession();
+//                session.setAttribute("user", dto);
+//                req.setAttribute("user", dto);
+//                List<UserDto> users = userService.get();
+//                req.setAttribute("users", users);
+//                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui");
+//                requestDispatcher.forward(req, resp);
+//                return;
+//            } else {
+//                login = null;
+//            }
+//        }
+//
+//        if(login == null) {
+//            req.setAttribute("login1", dto.getLogin());
+//            req.setAttribute("login2", userService.get(dto.getLogin()).getLogin());
+//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui/signUp");
+//            requestDispatcher.forward(req, resp);
+//        }
+
 }

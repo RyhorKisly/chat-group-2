@@ -8,10 +8,18 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.example.chat_group_2.core.dto.UserDto;
+import org.example.chat_group_2.service.api.IUserService;
+import org.example.chat_group_2.service.factory.UserServiceFactory;
 
 import java.io.IOException;
+import java.util.List;
+
 @WebServlet(urlPatterns = "/ui/signUp")
-public class UserUiServlet extends HttpServlet {
+public class UiSignUpServlet extends HttpServlet {
+    private final IUserService userService;
+    public UiSignUpServlet() {
+        userService = UserServiceFactory.getInstance();
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -22,6 +30,8 @@ public class UserUiServlet extends HttpServlet {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
             requestDispatcher.forward(req, resp);
         } else {
+            List<UserDto> users = userService.get();
+            req.setAttribute("users", users);
             req.setAttribute("user", dto);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
             requestDispatcher.forward(req, resp);
