@@ -15,28 +15,26 @@
     <nav>
         <ul>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">Messages</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Chats</a></li>
                     <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Sign In</a></li>
 
-                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Registration</a></li>
+                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign In</a></li>
                   <!-- <li style="float: right;"><span>Login: guest Role: unknown</span></li> -->
         </ul>
     </nav>
 </header>
 <form class="modal-content" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/user" method="POST">
   <c:choose>
-    <c:when test="${loginBoolean == false}">
-      <div class="container">
-        <h1>Registration</h1>
-        <p>Please fill in this form to create an account.</p>
-      </div>
+    <c:when test="${login1.toString() eq login2.toString()}">
+          <div class="container">
+            <h1>Registration</h1>
+            <p style="color:red">login: ${login1}  </br>
+            already exists. Please, try again!</p>
+          </div>
     </c:when>
     <c:otherwise>
       <div class="container">
         <h1>Registration</h1>
-        <p style="color:red">login: ${login}  </br>
-        already exists. Please, try again!</p>
+        <p>Please fill in this form to create an account.</p>
       </div>
     </c:otherwise>
   </c:choose>
