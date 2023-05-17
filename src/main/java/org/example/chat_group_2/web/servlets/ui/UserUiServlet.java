@@ -6,20 +6,30 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import org.example.chat_group_2.core.dto.UserDto;
 
 import java.io.IOException;
 @WebServlet(urlPatterns = "/ui/signUp")
 public class UserUiServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UserSignUp.jsp");
-        requestDispatcher.forward(req, resp);
-    }
-
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("loginBoolean", false);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UserSignUp.jsp");
+        HttpSession session = req.getSession();
+        UserDto dto = (UserDto) session.getAttribute("user");
+        if(dto == null) {
+            req.setAttribute("login1", "login1");
+            req.setAttribute("login2", "login2");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
+            requestDispatcher.forward(req, resp);
+        } else {
+            req.setAttribute("user", dto);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
+            requestDispatcher.forward(req, resp);
+        }
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
         requestDispatcher.forward(req, resp);
     }
 }
