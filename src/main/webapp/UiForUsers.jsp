@@ -22,36 +22,29 @@
         </ul>
     </nav>
 </header>
-
 <div class="main">
-<div>
-<h1>Привет, ${user.login}!
-</h1><p>Если у тебя возникли вопросы по использованию чата , свяжитесь с администратором!</p>
-<h3>Список пользователей</h3>
-
-                                        <lu type="none">
-                    <c:forEach items="${users}" var="user1">
-
-                                                      <hr/>
-                                              <li class="wraper">
-                                                <div class="wraper-1">
-                                                <c:out value="${user1.login}"/>
-
-
-                                                </div>
-                                                <div class="wraper-2">
-                                                  <form method="get" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">
-                                                    <button value="1" name="answerLogin">Написать</button>
-                                                  </form>
-                                                </div>
-                                              </li>
-                                              <hr/>
-
-                    </c:forEach>
-                        </lu>
-
-                      </div>
-                      </div>
+    <div>
+        <h1>Привет, ${user.login}!</h1>
+        <p>Если у тебя возникли вопросы по использованию чата , свяжитесь с администратором!</p>
+        <h3>Список пользователей</h3>
+        <lu type="none">
+            <hr/>
+            <c:forEach items="${users}" var="user1">
+                <li class="wraper">
+                    <div class="wraper-1">
+                        <c:out value="${user1.login}"/>
+                    </div>
+                    <div class="wraper-2">
+                        <form method="get" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">
+                            <button value=<c:out value="${user1.login}"/> name="answerLogin">Написать</button>
+                        </form>
+                    </div>
+                </li>
+                <hr/>
+            </c:forEach>
+        </lu>
+    </div>
+</div>
 
 </body>
 </html>
