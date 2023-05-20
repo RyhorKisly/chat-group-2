@@ -14,7 +14,8 @@ public class UserDto {
 
     }
 
-    public UserDto(String login, String passWord, String lastName, String firstName, String patronymic, String birthDay, String registrationDay, String role) {
+    public UserDto(String login, String passWord, String lastName, String firstName, String patronymic, String birthDay,
+                   String registrationDay, String role) {
         this.login = login;
         this.password = passWord;
         this.lastName = lastName;
