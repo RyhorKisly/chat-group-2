@@ -15,9 +15,9 @@
     <nav>
         <ul>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
-                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Sign In</a></li>
+                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Вход</a></li>
 
-                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign Un</a></li>
+                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Регистрация</a></li>
                   <!-- <li style="float: right;"><span>Login: guest Role: unknown</span></li> -->
         </ul>
     </nav>
@@ -34,10 +34,10 @@
   </div>
   <hr>
   <div class="container signin">
-    <p><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Sign In</a></p>
+    <p><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Вход</a></p>
   </div>
     <div class="container signin">
-    <p><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign Un</a></p>
+    <p><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Регистрация</a></p>
   </div>
   </div>
 

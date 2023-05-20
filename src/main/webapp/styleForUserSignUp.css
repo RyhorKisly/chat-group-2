@@ -1,15 +1,12 @@
 * {box-sizing: border-box}
-
 /* Add padding to containers */
 .container-form {
   padding: 16px;
 }
-
 .container {
   padding: 16px;
   text-align: center;
 }
-
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=date] {
   width: 100%;
@@ -19,30 +16,25 @@ input[type=text], input[type=password], input[type=date] {
   border: none;
   background: #f1f1f1;
 }
-
 .modal-content {
     background-color: #fefefe;
     margin: 3% auto 2% auto; 
     border: 1px solid #888;
     width: 500px;
 }
-
 label {
     display: block;
     font: 1rem 'Fira Sans', sans-serif;
 }
-
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
-
 /* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 15px;
 }
-
 /* Set a style for the submit/register button */
 .registerbtn {
   background-color: #4CAF50;
@@ -54,15 +46,9 @@ hr {
   width: 100%;
   opacity: 0.9;
 }
-
-.registerbtn:hover {
-  opacity:11;
-}
-
+.registerbtn:hover {opacity:11;}
 /* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
+a {color: dodgerblue; text-decoration: none;}
 
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
@@ -70,11 +56,13 @@ a {
   text-align: center;
 }
 
+
+
 /* Стили для header*/
 header { background-color: #333; padding: 20px; }
 nav { background-color: #333; overflow: hidden; }
 nav ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; }
 nav li { float: left; }
-nav li a { display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; }
+nav li a { display: block; color: white; text-align: center; padding: 14px 16px; }
 nav li a:hover { background-color: #111; }
 nav li span { display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; }
