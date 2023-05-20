@@ -1,4 +1,4 @@
-package org.example.chat_group_2.web.servlets.ui;
+package org.example.chat_group_2.web.servlets.api;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,13 +6,17 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-@WebServlet(urlPatterns = "/ui/signUp")
-public class UserUiServlet extends HttpServlet {
+
+@WebServlet(urlPatterns = "/api/signOut")
+public class SignOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UserSignUp.jsp");
+        HttpSession session = req.getSession();
+        session.removeAttribute("user");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui");
         requestDispatcher.forward(req, resp);
     }
 }

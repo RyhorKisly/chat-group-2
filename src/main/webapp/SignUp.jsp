@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
++<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +11,37 @@
 	<title>Registration form</title>
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
+                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Sign In</a></li>
+
+                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign In</a></li>
+                  <!-- <li style="float: right;"><span>Login: guest Role: unknown</span></li> -->
+        </ul>
+    </nav>
+</header>
 <form class="modal-content" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/user" method="POST">
-	<div class="container">
-		<h1>Registration</h1>
-		<p>Please fill in this form to create an account.</p>
-	</div>
-	<hr>
+  <c:choose>
+    <c:when test="${login1.toString() eq login2.toString()}">
+          <div class="container">
+            <h1>Registration</h1>
+            <p style="color:red">login: ${login1}  </br>
+            already exists. Please, try again!</p>
+          </div>
+    </c:when>
+    <c:otherwise>
+      <div class="container">
+        <h1>Registration</h1>
+        <p>Please fill in this form to create an account.</p>
+      </div>
+    </c:otherwise>
+  </c:choose>
+  <hr>
   <div class="container-form">
     <label for="login"><b>Login</b></label>
-    <input type="text" placeholder="Введите Email" name="login" required>
+    <input type="text" placeholder="Введите login" name="login" required>
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Введите пароль" name="password" required>
