@@ -24,32 +24,13 @@ public class UiServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserDto dto = (UserDto) session.getAttribute("user");
+        RequestDispatcher requestDispatcher;
         if(dto == null) {
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Ui.jsp");
-            requestDispatcher.forward(req, resp);
+            requestDispatcher = req.getRequestDispatcher("/Ui.jsp");
         } else {
-            List<UserDto> users = userService.get();
-            req.setAttribute("users", users);
-            req.setAttribute("user", dto);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
-            requestDispatcher.forward(req, resp);
+            requestDispatcher = req.getRequestDispatcher("/ui/user");
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        UserDto dto = (UserDto) session.getAttribute("user");
-        if(dto == null) {
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Ui.jsp");
-            requestDispatcher.forward(req, resp);
-        } else {
-            List<UserDto> users = userService.get();
-            req.setAttribute("users", users);
-            req.setAttribute("user", dto);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
-            requestDispatcher.forward(req, resp);
-        }
+        requestDispatcher.forward(req, resp);
     }
 
 }

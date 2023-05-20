@@ -24,22 +24,15 @@ public class UiSignUpServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserDto dto = (UserDto) session.getAttribute("user");
+        RequestDispatcher requestDispatcher;
         if(dto == null) {
-            req.setAttribute("login1", "login1");
-            req.setAttribute("login2", "login2");
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
-            requestDispatcher.forward(req, resp);
+            String login = (String) session.getAttribute("loginOuter");
+            session.removeAttribute("loginOuter");
+            req.setAttribute("loginOuter", login);
+            requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
         } else {
-            List<UserDto> users = userService.get();
-            req.setAttribute("users", users);
-            req.setAttribute("user", dto);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
-            requestDispatcher.forward(req, resp);
+            requestDispatcher = req.getRequestDispatcher("/ui/user");
         }
-    }
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

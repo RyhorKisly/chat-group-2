@@ -40,17 +40,11 @@ public class UserServlet extends HttpServlet {
         HttpSession session = req.getSession();
         UserDto dto = (UserDto) session.getAttribute("user");
         if(dto == null) {
-            req.setAttribute("login1", "login1");
-            req.setAttribute("login2", "login2");
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
-            requestDispatcher.forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/ui");
         } else {
-            List<UserDto> users = userService.get();
-            req.setAttribute("users", users);
-            req.setAttribute("user", dto);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
-            requestDispatcher.forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/ui/user");
         }
+
 
     }
 
@@ -78,21 +72,16 @@ public class UserServlet extends HttpServlet {
         );
 
 
-
+        HttpSession session = req.getSession();
         if(userService.get(dto.getLogin()) == null) {
             userService.save(dto);
-            HttpSession session = req.getSession();
             session.setAttribute("user", dto);
             req.setAttribute("user", dto);
-            List<UserDto> users = userService.get();
-            req.setAttribute("users", users);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui");
-            requestDispatcher.forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/ui/user");
         } else {
-            req.setAttribute("login1", dto.getLogin());
-            req.setAttribute("login2", userService.get(dto.getLogin()).getLogin());
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui/signUp");
-            requestDispatcher.forward(req, resp);
+            session.setAttribute("loginOuter", dto.getLogin());
+            resp.setStatus(resp.SC_BAD_REQUEST);
+            resp.sendRedirect(req.getContextPath() + "/ui/signUp");
         }
 
     }
