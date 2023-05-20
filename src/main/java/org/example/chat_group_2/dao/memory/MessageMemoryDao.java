@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class MessageMemoryDao implements IMessageDao {
     private final Map<Integer, MessageDto> message = new HashMap<>();
+
     public MessageMemoryDao() {
     }
 
@@ -27,5 +28,10 @@ public class MessageMemoryDao implements IMessageDao {
     public MessageDto save(MessageDto item) {
         this.message.put(item.getId(), item);
         return item;
+    }
+
+    @Override
+    public void delete(int id) {
+        this.message.remove(id);
     }
 }

@@ -1,16 +1,18 @@
 package org.example.chat_group_2.service.api;
 
+import org.example.chat_group_2.core.dto.MessageCreateDto;
 import org.example.chat_group_2.core.dto.MessageDto;
 
 import java.util.List;
 
-public interface IMessageService<T, S> {
-    List<MessageDto> getMessagesForUser(int userId);
+public interface IMessageService  extends ICRUDService<MessageDto, MessageCreateDto> {
+    List<MessageDto> getMessagesForUser(String userLogin);
+
+    List<MessageDto> getMessagesUser(String userLogin);
 
     void setService(IUserService userService);
-    List<T> get();
 
-    T get(int id);
+    List<MessageDto> getMessagesForUsers(String currentUserLogin, String recipientUserLogin);
 
-    T save (S item);
+    void delete(int id);
 }
