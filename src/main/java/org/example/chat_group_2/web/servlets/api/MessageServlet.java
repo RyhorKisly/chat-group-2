@@ -20,8 +20,8 @@ import java.util.List;
 
 @WebServlet("/api/message")
 public class MessageServlet extends HttpServlet {
-    private static final String TO_PARAM_NAME = "to whom";
-    private static final String TEXT_PARAM_NAME = "message";
+    private static final String TO_PARAM_NAME = "to";
+    private static final String TEXT_PARAM_NAME = "text";
     private static final String USER_SESSION_ATTRIBUTE_NAME = "user";
     private final IMessageService messageService;
     private final IUserService userService;

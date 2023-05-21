@@ -4,6 +4,8 @@ import org.example.chat_group_2.core.dto.MessageCreateDto;
 import org.example.chat_group_2.core.dto.MessageDto;
 import org.example.chat_group_2.core.dto.UserDto;
 import org.example.chat_group_2.dao.api.IMessageDao;
+import org.example.chat_group_2.dao.memory.UserMemoryDao;
+import org.example.chat_group_2.dao.memory.factory.UserDaoFactory;
 import org.example.chat_group_2.service.api.IMessageService;
 import org.example.chat_group_2.service.api.IUserService;
 
@@ -14,6 +16,9 @@ public class MessageService implements IMessageService {
     private IMessageDao messageDao;
     private IUserService userService;
 
+    public MessageService(IMessageDao messageDao) {
+        this.messageDao = messageDao;
+    }
 
     @Override
     public List<MessageDto> get() {

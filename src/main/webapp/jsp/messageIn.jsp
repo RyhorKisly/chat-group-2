@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-       <%@include file='/style/libStyle.css' %>
+       <%@include file='/jsp/style/libStyle.css' %>
     </style>
 	<title>Исходящие сообщения</title>
 </head>
@@ -16,7 +16,7 @@
     <nav>
         <ul>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">Messages</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">Messages</a></li>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Chats</a></li>
                 <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Sign Out</a></li>
                 <li style="float: right;"><span>${user.role}: ${user.login}</span></li>

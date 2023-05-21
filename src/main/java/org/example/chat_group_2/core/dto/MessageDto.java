@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 public class MessageDto {
     private int id;
-
     private LocalDateTime dateTime;
     private UserDto from;
     private UserDto to;

@@ -14,7 +14,7 @@ public class MessageServiceFactory {
         if (instance == null) {
             synchronized (MessageServiceFactory.class) {
                 if (instance == null) {
-                   // instance = new MessageService(MessageDaoFactory.getInstance());
+                   instance = new MessageService(MessageDaoFactory.getInstance());
                 }
             }
         }
