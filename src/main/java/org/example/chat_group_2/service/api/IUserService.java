@@ -8,4 +8,5 @@ public interface IUserService {
     List<UserDto> get();
     UserDto get(String login);
     UserDto save(UserDto genre);
+    UserDto findByLogin(String login);
 }

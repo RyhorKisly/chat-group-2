@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -10,17 +10,7 @@
 	<title>Входящие сообщения</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">Messages</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Chats</a></li>
-                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Sign Out</a></li>
-                <li style="float: right;"><span>${user.role}: ${user.login}</span></li>
-        </ul>
-    </nav>
-</header>
+<jsp:include page="../header.jsp" />
 <a href="${pageContext.request.contextPath}/ui/user" class="back-button">Назад</a>
 <main class="main">
     <div class="container"><h1 class="title">Входящие сообщения</h1>
@@ -46,12 +36,6 @@
                                href="${pageContext.request.contextPath}/ui/user/message?to=${message.from.login}">
                                 Ответить
                             </a>
-                        </form>
-
-                        <form method="POST"
-                              action="${pageContext.request.contextPath}/api/message/del/${message.id}"
-                              class="form"><input type="hidden" name="_method" value="DELETE"/> <input type="hidden" name="messageId" value="${message.id}"/>
-                            <button type="submit" class="button_sa">Удалить</button>
                         </form>
                     </div>
                 </div>

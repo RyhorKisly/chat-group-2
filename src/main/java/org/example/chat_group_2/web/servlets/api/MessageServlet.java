@@ -66,7 +66,7 @@ public class MessageServlet extends HttpServlet {
             return;
         }
 
-        UserDto recipient = userService.get(currentUser.getLogin());
+        UserDto recipient = userService.findByLogin(toUsername);
         if (recipient == null) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Recipient with such username does not exist");
             return;

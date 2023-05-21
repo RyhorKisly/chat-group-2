@@ -28,4 +28,18 @@ public class UserMemoryDao implements IUserDao {
         this.users.put(item.getLogin(), item);
         return item;
     }
+
+    @Override
+    public UserDto findByLogin(String login) {
+
+            for (UserDto user : this.users.values()) {
+                if (user.getLogin().equals(login)) {
+
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
 }
