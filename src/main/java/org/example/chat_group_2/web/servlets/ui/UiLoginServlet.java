@@ -15,7 +15,7 @@ public class UiLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/SignIn.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/jsp/SignIn.jsp");
         requestDispatcher.forward(req, resp);
     }
 }
