@@ -6,9 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-       <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/message.css">
-    </style>
+       <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/messages.css">
 	<title>Исходящие сообщения</title>
 </head>
 <body>
