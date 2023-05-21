@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
             if (userService.get(loginValue).getLogin().equals(loginValue) && userService.get(loginValue).getPassword().equals(passwordValue)){
                 HttpSession session = req.getSession();
                 session.setAttribute("user", userService.get(loginValue));
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui/user");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui");
                 requestDispatcher.forward(req, resp);
             } else{
                 writer.write("<p>Password is incorrect</p>");
