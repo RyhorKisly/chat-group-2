@@ -7,8 +7,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-       <%@include file='/jsp/style/message.css' %>
-       <%@include file='/jsp/style/style.css' %>
+       <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/message.css">
+       <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/style.css">
     </style>
 	<title>Исходящие сообщения</title>
 </head>
