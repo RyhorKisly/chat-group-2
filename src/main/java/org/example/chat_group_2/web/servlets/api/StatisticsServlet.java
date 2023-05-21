@@ -11,6 +11,7 @@ import org.example.chat_group_2.dao.memory.UserMemoryDao;
 
 import java.io.IOException;
 
+@Webservlet(name = "StatisticsServlet", urlPatterns = "/ui/admin/statistics")
 public class StatisticsServlet extends HttpServlet {
 
     private final IUserDao userDao = new UserMemoryDao();
