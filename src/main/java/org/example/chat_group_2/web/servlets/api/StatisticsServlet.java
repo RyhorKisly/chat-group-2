@@ -30,8 +30,7 @@ public class StatisticsServlet extends HttpServlet {
         String statistics = "Active User Count: " + activeUserCount + "\n"
                 + "Total User Count: " + totalUserCount + "\n"
                 + "Total Message Count: " + totalMessageCount;
-
-        resp.setContentType("text/plain");
+        resp.setContentType("text/html; charset=UTF-8");
         resp.getWriter().println(statistics);
     }
 }
