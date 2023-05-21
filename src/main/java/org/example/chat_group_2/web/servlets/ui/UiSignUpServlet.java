@@ -29,7 +29,7 @@ public class UiSignUpServlet extends HttpServlet {
             String login = (String) session.getAttribute("loginOuter");
             session.removeAttribute("loginOuter");
             req.setAttribute("loginOuter", login);
-            requestDispatcher = req.getRequestDispatcher("/SignUp.jsp");
+            requestDispatcher = req.getRequestDispatcher("/jsp/SignUp.jsp");
         } else {
             requestDispatcher = req.getRequestDispatcher("/ui/user");
         }
