@@ -32,7 +32,7 @@ public class UiAdminServlet extends HttpServlet {
             List<UserDto> users = userService.get();
             req.setAttribute("users", users);
             req.setAttribute("user", dto);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("jsp/UiForUsers.jsp");
             requestDispatcher.forward(req, resp);
         }
     }
