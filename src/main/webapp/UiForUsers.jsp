@@ -14,10 +14,15 @@
 <header>
     <nav>
         <ul>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">Messages</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Chats</a></li>
-                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Sign Out</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user">Главная</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">Сообщения</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Чат</a></li>
+  <c:choose>
+    <c:when test="${user.role == 'Admin'}">
+    <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/admin/statistics">Статистика</a></li>
+    </c:when>
+  </c:choose>
+                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Выход</a></li>
                   <li style="float: right;"><span>${user.role}: ${user.login}</span></li>
         </ul>
     </nav>
@@ -25,7 +30,7 @@
 <div class="main">
     <div>
         <h1>Привет, ${user.login}!</h1>
-        <p>Если у тебя возникли вопросы по использованию чата , свяжитесь с администратором!</p>
+        <p>Админ всегда на связи!</p>
         <h3>Список пользователей</h3>
         <lu type="none">
             <hr/>

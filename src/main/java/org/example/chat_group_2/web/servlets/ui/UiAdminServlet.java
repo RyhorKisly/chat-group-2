@@ -12,25 +12,28 @@ import org.example.chat_group_2.service.api.IUserService;
 import org.example.chat_group_2.service.factory.UserServiceFactory;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/ui")
-public class UiServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/ui/admin")
+public class UiAdminServlet extends HttpServlet {
     private final IUserService userService;
-    public UiServlet() {
+    public UiAdminServlet() {
         userService = UserServiceFactory.getInstance();
     }
-    @Override
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserDto dto = (UserDto) session.getAttribute("user");
-        RequestDispatcher requestDispatcher;
         if(dto == null) {
-            requestDispatcher = req.getRequestDispatcher("/Ui.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ui");
+            requestDispatcher.forward(req, resp);
         } else {
-            requestDispatcher = req.getRequestDispatcher("/ui/user");
+            List<UserDto> users = userService.get();
+            req.setAttribute("users", users);
+            req.setAttribute("user", dto);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/UiForUsers.jsp");
+            requestDispatcher.forward(req, resp);
         }
-        requestDispatcher.forward(req, resp);
     }
-
 }

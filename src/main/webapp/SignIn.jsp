@@ -18,7 +18,7 @@
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
                     <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Sign In</a></li>
 
-                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign In</a></li>
+                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign Up</a></li>
                   <!-- <li style="float: right;"><span>Login: guest Role: unknown</span></li> -->
         </ul>
     </nav>
