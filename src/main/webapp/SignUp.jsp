@@ -1,4 +1,4 @@
-+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,55 +14,55 @@
 <header>
     <nav>
         <ul>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
-                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Sign In</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Главная</a></li>
+                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Вход</a></li>
 
-                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Sign In</a></li>
+                <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Регистрация</a></li>
                   <!-- <li style="float: right;"><span>Login: guest Role: unknown</span></li> -->
         </ul>
     </nav>
 </header>
 <form class="modal-content" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/user" method="POST">
   <c:choose>
-    <c:when test="${login1.toString() eq login2.toString()}">
+    <c:when test="${empty loginOuter}">
           <div class="container">
-            <h1>Registration</h1>
-            <p style="color:red">login: ${login1}  </br>
-            already exists. Please, try again!</p>
+            <h1>Регистрация</h1>
+            <p>Пожалуйста, заполните форму для создания аккаунта.</p>
           </div>
     </c:when>
     <c:otherwise>
-      <div class="container">
-        <h1>Registration</h1>
-        <p>Please fill in this form to create an account.</p>
-      </div>
+              <div class="container">
+                <h1>Регистрация</h1>
+                <p style="color:red">login: ${loginOuter}  </br>
+                Уже существует. Пожалуйста, попробуй ещё!</p>
+              </div>
     </c:otherwise>
   </c:choose>
   <hr>
   <div class="container-form">
-    <label for="login"><b>Login</b></label>
-    <input type="text" placeholder="Введите login" name="login" required>
+    <label for="login"><b>Логин</b></label>
+    <input type="text" placeholder="Введите логин" name="login" required>
 
-    <label for="password"><b>Password</b></label>
+    <label for="password"><b>Пароль</b></label>
     <input type="password" placeholder="Введите пароль" name="password" required>
 
-    <label for="lastName"><b>LastName</b></label>
+    <label for="lastName"><b>Фамилия</b></label>
     <input type="text" placeholder="Введите Фамилию" name="lastName" required>
 
-    <label for="firstName"><b>FirstName</b></label>
+    <label for="firstName"><b>Имя</b></label>
     <input type="text" placeholder="Введите Имя" name="firstName" required>
 
-        <label for="patronymic"><b>Patronymic</b></label>
+        <label for="patronymic"><b>Отчество</b></label>
     <input type="text" placeholder="Введите Отчество" name="patronymic" required>
 
-    <label for="birthDay"><b>Enter Birthday</b></label>
+    <label for="birthDay"><b>Введите дату рождения</b></label>
     <input type="date" id="Bday" name="birthDay" min="1967-01-01" max="2018-12-31" required>
     <hr>
 
-    <button type="submit" class="registerbtn">Sign up</button>
+    <button type="submit" class="registerbtn">Регистрация</button>
   </div>
   <div class="container signin">
-    <p>Already have an account? <a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/login">Sign in</a>.</p>
+    <p>Уже есть аккаунт? <a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/login">Вход</a>.</p>
   </div>
   </form>
 
