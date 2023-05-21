@@ -7,7 +7,7 @@ public class MessageDto {
     private LocalDateTime dateTime;
     private UserDto from;
     private UserDto to;
-    private String letter;
+    private String text;
 
     public MessageDto() {
     }
@@ -17,7 +17,7 @@ public class MessageDto {
         this.dateTime = dateTime;
         this.from = from;
         this.to = to;
-        this.letter = text;
+        this.text = text;
     }
 
     public LocalDateTime getDateTime() {
@@ -44,12 +44,12 @@ public class MessageDto {
         this.to = to;
     }
 
-    public String getLetter() {
-        return letter;
+    public String getText() {
+        return text;
     }
 
-    public void setLetter(String letter) {
-        this.letter = letter;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getId() {

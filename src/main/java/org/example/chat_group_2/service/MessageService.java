@@ -4,8 +4,6 @@ import org.example.chat_group_2.core.dto.MessageCreateDto;
 import org.example.chat_group_2.core.dto.MessageDto;
 import org.example.chat_group_2.core.dto.UserDto;
 import org.example.chat_group_2.dao.api.IMessageDao;
-import org.example.chat_group_2.dao.memory.UserMemoryDao;
-import org.example.chat_group_2.dao.memory.factory.UserDaoFactory;
 import org.example.chat_group_2.service.api.IMessageService;
 import org.example.chat_group_2.service.api.IUserService;
 
@@ -13,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class MessageService implements IMessageService {
-    private IMessageDao messageDao;
+    private final IMessageDao messageDao;
     private IUserService userService;
 
     public MessageService(IMessageDao messageDao) {
@@ -43,7 +41,7 @@ public class MessageService implements IMessageService {
         dto.setDateTime(LocalDateTime.now());
         dto.setFrom(item.getFrom());
         dto.setTo(item.getTo());
-        dto.setLetter(item.getLetter());
+        dto.setText(item.getText());
 
         return messageDao.save(dto);
     }
@@ -77,7 +75,7 @@ public class MessageService implements IMessageService {
         }
 
         for (MessageDto message : allMessages) {
-            if (message.getFrom().getLogin() == userLogin) {
+            if (Objects.equals(message.getFrom().getLogin(), userLogin)) {
                 messages.add(message);
             }
         }

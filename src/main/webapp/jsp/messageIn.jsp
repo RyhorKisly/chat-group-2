@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-       <%@include file='/jsp/style/libStyle.css' %>
+       <%@include file='/jsp/style/messages.css' %>
     </style>
 	<title>Исходящие сообщения</title>
 </head>
@@ -35,7 +35,7 @@
                         <div class="message__recipient-box">
                             <b>От:</b>
                         </div>
-                        <p class="message__recipient-text">${message.from.userName}</p>
+                        <p class="message__recipient-text">${message.from.login}</p>
                     </div>
                     <p class="message__date">
                         <b></b> ${message.dateTime != null ? message.dateTime.format(formatter) : ''}</p>
@@ -45,7 +45,7 @@
                     <div class="message__form">
                         <form method="post" action="${pageContext.request.contextPath}/ui/user/message" class="form">
                             <a class="button_as"
-                               href="${pageContext.request.contextPath}/ui/user/message?to=${message.from.userName}">
+                               href="${pageContext.request.contextPath}/ui/user/message?to=${message.from.login}">
                                 Ответить
                             </a>
                         </form>

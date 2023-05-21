@@ -7,15 +7,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-       <%@include file='/jsp/style/messageStyle.css' %>
+       <%@include file='/jsp/style/message.css' %>
     </style>
-	<title>Отправить сообщение</title>
+	<title>Исходящие сообщения</title>
 </head>
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user">Home</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">Messages</a></li>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Chats</a></li>
                 <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Sign Out</a></li>
@@ -25,7 +25,7 @@
 </header>
 
 <c:if test="${not empty user}">
-    <a href="${pageContext.request.contextPath}/ui" class="back-button">Назад</a>
+    <a href="${pageContext.request.contextPath}/ui/user" class="back-button">Назад</a>
     <form method="post" action="${pageContext.request.contextPath}/api/message" class="message-form">
         <label for="to">Кому:</label>
         <select id="to" name="to" required>
