@@ -2,6 +2,7 @@ package org.example.chat_group_2.web.servlets.api;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.chat_group_2.dao.api.IMessageDao;
@@ -11,7 +12,7 @@ import org.example.chat_group_2.dao.memory.UserMemoryDao;
 
 import java.io.IOException;
 
-@Webservlet(name = "StatisticsServlet", urlPatterns = "/ui/admin/statistics")
+@WebServlet(name = "StatisticsServlet", urlPatterns = "/api/admin/statistics")
 public class StatisticsServlet extends HttpServlet {
 
     private final IUserDao userDao = new UserMemoryDao();
