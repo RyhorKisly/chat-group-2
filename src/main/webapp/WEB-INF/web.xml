@@ -4,6 +4,10 @@
                              https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          metadata-complete="false">
 
+    <listener>
+        <listener-class>org.example.chat_group_2.web.listeners.ActiveUserListener</listener-class>
+    </listener>
+
     <display-name>chat-group-2</display-name>
 
 </web-app>
