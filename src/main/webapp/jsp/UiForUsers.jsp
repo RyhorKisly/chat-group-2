@@ -15,7 +15,7 @@
     <nav>
         <ul>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user">Главная</a></li>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">Сообщения</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">Сообщения</a></li>
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Чат</a></li>
   <c:choose>
     <c:when test="${user.role == 'Admin'}">
@@ -40,7 +40,7 @@
                         <c:out value="${user1.login}"/>
                     </div>
                     <div class="wraper-2">
-                        <form method="get" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/user/message">
+                        <form method="get" action="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">
                             <button value=<c:out value="${user1.login}"/> name="answerLogin">Написать</button>
                         </form>
                     </div>

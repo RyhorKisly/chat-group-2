@@ -3,12 +3,12 @@ package org.example.chat_group_2.core.dto;
 public class MessageCreateDto {
     private UserDto from;
     private UserDto to;
-    private String letter;
+    private String text;
 
     public MessageCreateDto(UserDto from, UserDto to, String letter) {
         this.from = from;
         this.to = to;
-        this.letter = letter;
+        this.text = letter;
     }
 
     public UserDto getFrom() {
@@ -27,11 +27,11 @@ public class MessageCreateDto {
         this.to = to;
     }
 
-    public String getLetter() {
-        return letter;
+    public String getText() {
+        return text;
     }
 
-    public void setLetter(String letter) {
-        this.letter = letter;
+    public void setText(String letter) {
+        this.text = letter;
     }
 }

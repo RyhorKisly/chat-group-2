@@ -4,12 +4,12 @@ import org.example.chat_group_2.core.dto.MessageDto;
 import org.example.chat_group_2.dao.api.IMessageDao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MessageMemoryDao implements IMessageDao {
-    private final Map<Integer, MessageDto> message = new HashMap<>();
+    private final Map<Integer, MessageDto> message = new ConcurrentHashMap<>();
 
     public MessageMemoryDao() {
     }

@@ -20,8 +20,8 @@ import java.util.List;
 
 @WebServlet("/api/message")
 public class MessageServlet extends HttpServlet {
-    private static final String TO_PARAM_NAME = "to whom";
-    private static final String TEXT_PARAM_NAME = "message";
+    private static final String TO_PARAM_NAME = "to";
+    private static final String TEXT_PARAM_NAME = "text";
     private static final String USER_SESSION_ATTRIBUTE_NAME = "user";
     private final IMessageService messageService;
     private final IUserService userService;
@@ -66,7 +66,7 @@ public class MessageServlet extends HttpServlet {
             return;
         }
 
-        UserDto recipient = userService.get(currentUser.getLogin());
+        UserDto recipient = userService.findByLogin(toUsername);
         if (recipient == null) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Recipient with such username does not exist");
             return;

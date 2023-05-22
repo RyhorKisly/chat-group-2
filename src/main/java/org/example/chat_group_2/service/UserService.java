@@ -27,4 +27,9 @@ public class UserService implements IUserService {
     public UserDto save(UserDto item) {
         return userDao.save(item);
     }
+
+    @Override
+    public UserDto findByLogin(String login) {
+        return userDao.findByLogin(login);
+    }
 }

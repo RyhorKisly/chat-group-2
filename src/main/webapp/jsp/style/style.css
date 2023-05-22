@@ -1,0 +1,224 @@
+body {
+    background-color: #f8f8f8;
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #444;
+}
+
+table {
+    margin: 16px auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.pagination, footer {
+    max-width: 960px;
+    margin: 16px auto;
+    text-align: center;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination a:hover {
+    background-color: #f8f8f8;
+}
+
+.pagination .active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+footer {
+    padding: 16px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+}
+.welcome {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-link {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.login-buttons form {
+    margin: 0 10px;
+}
+
+.or {
+    margin: 0;
+    font-size: 18px;
+    color: #666;
+}
+
+.login-button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid #000;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: #333;
+    text-shadow: 1px 1px #ccc;
+    font-family: Arial, sans-serif;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main {
+    text-align: center;
+    margin-top: 2cm;
+}
+
+.top-button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #0A0A0A;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid #000;
+    transition: all 0.3s ease;
+}
+
+.top-button:hover {
+    background-color: #0A0A0A;
+    color: #fff;
+    cursor: pointer;
+}
+
+css
+Copy
+header .icon {
+    float: right;
+    margin-right: 20px;
+}
+
+header .icon img {
+    height: 32px;
+    width: 32px;
+}

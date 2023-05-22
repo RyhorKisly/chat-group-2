@@ -12,6 +12,6 @@ import java.io.IOException;
 public class InMessageUIServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/ui/user/inMessages.jsp").forward(req, resp);
+        req.getRequestDispatcher("/jsp/messageIn.jsp").forward(req, resp);
     }
 }

@@ -11,9 +11,12 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class MessageService implements IMessageService {
-    private IMessageDao messageDao;
+    private final IMessageDao messageDao;
     private IUserService userService;
 
+    public MessageService(IMessageDao messageDao) {
+        this.messageDao = messageDao;
+    }
 
     @Override
     public List<MessageDto> get() {
@@ -38,7 +41,7 @@ public class MessageService implements IMessageService {
         dto.setDateTime(LocalDateTime.now());
         dto.setFrom(item.getFrom());
         dto.setTo(item.getTo());
-        dto.setLetter(item.getLetter());
+        dto.setText(item.getText());
 
         return messageDao.save(dto);
     }
@@ -72,7 +75,7 @@ public class MessageService implements IMessageService {
         }
 
         for (MessageDto message : allMessages) {
-            if (message.getFrom().getLogin() == userLogin) {
+            if (Objects.equals(message.getFrom().getLogin(), userLogin)) {
                 messages.add(message);
             }
         }
