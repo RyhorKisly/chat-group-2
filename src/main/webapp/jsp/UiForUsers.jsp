@@ -19,7 +19,7 @@
             <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Чат</a></li>
   <c:choose>
     <c:when test="${user.role == 'Admin'}">
-    <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/admin/statistics">Статистика</a></li>
+    <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/admin/statistics">Статистика</a></li>
     </c:when>
   </c:choose>
                     <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Выход</a></li>
