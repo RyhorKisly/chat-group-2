@@ -4,14 +4,32 @@
 
 <html>
 <head>
+	<style>
+       <%@include file='style/uiStyle.css' %>
+    </style>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/message.css">
-     <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/style.css">
 	<title>Исходящие сообщения</title>
 </head>
 <body>
-<jsp:include page="../header.jsp" />
+<header>
+    <nav>
+        <ul>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user">Главная</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">Сообщения</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Входящие</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats/out">Отправленные</a></li>
+  <c:choose>
+    <c:when test="${user.role == 'Admin'}">
+    <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/admin/statistics">Статистика</a></li>
+    </c:when>
+  </c:choose>
+                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Выход</a></li>
+                  <li style="float: right;"><span>${user.role}: ${user.login}</span></li>
+        </ul>
+    </nav>
+</header>
 
 <c:if test="${not empty user}">
     <a href="${pageContext.request.contextPath}/ui/user" class="back-button">Назад</a>

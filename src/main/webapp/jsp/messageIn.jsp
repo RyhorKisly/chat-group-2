@@ -6,11 +6,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+               <%@include file='style/uiStyle.css' %>
+            </style>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/style/messages.css">
 	<title>Входящие сообщения</title>
 </head>
 <body>
-<jsp:include page="../header.jsp" />
+<header>
+    <nav>
+        <ul>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user">Главная</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/message">Сообщения</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats">Входящие</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/user/chats/out">Отправленные</a></li>
+  <c:choose>
+    <c:when test="${user.role == 'Admin'}">
+    <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/admin/statistics">Статистика</a></li>
+    </c:when>
+  </c:choose>
+                    <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/signOut">Выход</a></li>
+                  <li style="float: right;"><span>${user.role}: ${user.login}</span></li>
+        </ul>
+    </nav>
+</header>
 <a href="${pageContext.request.contextPath}/ui/user" class="back-button">Назад</a>
 <main class="main">
     <div class="container"><h1 class="title">Входящие сообщения</h1>
