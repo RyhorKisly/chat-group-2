@@ -62,7 +62,7 @@
     <button type="submit" class="registerbtn">Регистрация</button>
   </div>
   <div class="container signin">
-    <p>Уже есть аккаунт? <a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/api/login">Вход</a>.</p>
+    <p>Уже есть аккаунт? <a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT//ui/signIn">Вход</a>.</p>
   </div>
   </form>
 
