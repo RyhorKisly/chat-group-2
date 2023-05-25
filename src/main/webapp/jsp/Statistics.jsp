@@ -9,7 +9,7 @@
 <header>
     <nav>
         <ul>
-            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Home</a></li>
+            <li><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui">Назад</a></li>
                     <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signIn">Вход</a></li>
 
                 <li style="float: right;"><a href="http://localhost:8081/chat-group-2-1.0-SNAPSHOT/ui/signUp">Регистрация</a></li>
